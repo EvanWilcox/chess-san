@@ -1,5 +1,5 @@
 {
-  "name": "chessground-app",
+  "name": "chess-san",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://evanwilcox.github.io/chess-san",
@@ -23,7 +23,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "set \"CI=false\" && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
