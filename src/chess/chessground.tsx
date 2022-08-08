@@ -25,7 +25,7 @@ function ChessGround({ config }: Props): JSX.Element {
 
   useEffect(() => {
     if (ref && ref.current) {
-      const chessgroundApi = Chessground(ref.current, { ...config });
+      const chessgroundApi = Chessground(ref.current);
       setApi(chessgroundApi);
     }
   }, []);
