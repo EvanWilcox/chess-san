@@ -15,10 +15,10 @@ interface Props {
 /**
  * Represents a Chessground Board.
  * @param {Config} config Config to be passed to the chessground object.
- * @returns {JSX.Element}
+ * @returns {JSX.Element} A JSX.Element representing the chessground board object
  */
 
-function ChessGround({ config = {} }: Props): JSX.Element {
+function ChessGround({ config }: Props): JSX.Element {
   const [api, setApi] = useState<Api | null>(null);
 
   const ref = useRef<HTMLDivElement>(null);
@@ -32,7 +32,7 @@ function ChessGround({ config = {} }: Props): JSX.Element {
 
   useEffect(() => {
     api?.set(config);
-  }, [config]);
+  }, [api, config]);
 
   return <div ref={ref} style={{ height: 0, width: "100%", paddingBottom: "100%", margin: "auto" }} />;
 }

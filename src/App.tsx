@@ -15,32 +15,32 @@ const board = new Chess(fen);
 var moves = board.moves({ verbose: true });
 var move = moves[Math.floor(Math.random() * moves.length)];
 
-function App() {
+function App(): JSX.Element {
   const [config, setConfig] = useState<Partial<Config>>({
     fen: board.fen(),
     orientation: getColor(board),
     movable: { free: false, dests: toDests(board) },
     draggable: { showGhost: true },
     events: { move: playerMove() },
-    highlight: { lastMove: false },
   });
-  // const [side, setSide] = useState(getColor(board))
 
-  function playerMove() {
-    return (orig: Key, dest: Key, capturedPiece?: Piece) => {
+  function playerMove(): (orig: Key, dest: Key, capturedPiece?: Piece) => void {
+    return (orig: Key, dest: Key): void => {
       if (move.from === orig && move.to === dest) {
-        // New Board
+        // Get new fen not equal to current one
         let newFen = fens[Math.floor(Math.random() * fens.length)];
         while (fen === newFen) {
           newFen = fens[Math.floor(Math.random() * fens.length)];
         }
+
+        // Update fen and move if correct move is played.
         fen = newFen;
         board.load(fen);
         moves = board.moves({ verbose: true });
         move = moves[Math.floor(Math.random() * moves.length)];
       }
 
-      // Reset Board
+      // Reset config for Chessground board.
       setConfig({
         fen: board.fen(),
         orientation: getColor(board),
