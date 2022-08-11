@@ -16,6 +16,13 @@ A simple web application to practice chess standard algebraic notation. The play
 * [Create React App](https://create-react-app.dev/)
 * [Chessground](https://github.com/lichess-org/chessground)
 
+## Install
+
+```
+git clone https://github.com/EvanWilcox/chess-san/
+npm install
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
